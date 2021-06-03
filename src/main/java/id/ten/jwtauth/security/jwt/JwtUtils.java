@@ -22,8 +22,8 @@ import java.util.Date;
  *
  * @version 0.0.1-SNAPSHOT
  * @author TetenNugraha
+ * @since 03-06-2021
  */
-
 @Component
 @Slf4j
 public class JwtUtils {
@@ -34,6 +34,12 @@ public class JwtUtils {
     @Value("${ten.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
+    /**
+     * Method ini digunakan untuk generate token dari object Authentication
+     *
+     * @param authentication
+     * @return
+     */
     public String generateJwtToken(Authentication authentication) {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
@@ -45,6 +51,12 @@ public class JwtUtils {
                 .compact();
     }
 
+    /**
+     * Method ini gidunakan untuk mendapatkan username dari suatu token valid
+     *
+     * @param token
+     * @return
+     */
     public String getUsernameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret)
                 .parseClaimsJws(token)
@@ -52,6 +64,12 @@ public class JwtUtils {
                 .getSubject();
     }
 
+    /**
+     * Method ini digunakan memvalidasi token
+     *
+     * @param authToken
+     * @return
+     */
     public boolean validateJwtToken(String authToken) {
         try{
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
