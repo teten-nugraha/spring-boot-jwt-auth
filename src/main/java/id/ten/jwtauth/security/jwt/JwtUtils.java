@@ -14,6 +14,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * Class ini digunakan untuk :
+ * - Generate jwt token
+ * - Memvalidasi token
+ * - Mendapatkan username dari token
+ *
+ * @version 0.0.1-SNAPSHOT
+ * @author TetenNugraha
+ */
+
 @Component
 @Slf4j
 public class JwtUtils {
