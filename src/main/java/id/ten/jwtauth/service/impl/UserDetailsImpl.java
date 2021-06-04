@@ -2,6 +2,7 @@ package id.ten.jwtauth.service.impl;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import id.ten.jwtauth.model.User;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
  * @author TetenNugraha
  * @since 03-06-2021
  */
+@Data
 public class UserDetailsImpl implements UserDetails {
 
     private static final long serialVersionUID = 1L;
